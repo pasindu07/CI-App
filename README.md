@@ -1,4 +1,4 @@
-# myApp
+# CI-App
 
 
 ## Rapid Application Development
