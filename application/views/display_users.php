@@ -26,6 +26,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Age</th>
             <th>Email</th>
             <th>Mobile</th>
             <th>Delete</th>
@@ -37,6 +38,7 @@
          echo "<tr>";
          echo "<td>$row->id</td>";
          echo "<td>$row->name</td>";
+         echo "<td>$row->age</td>";
          echo "<td>$row->email</td>";
          echo "<td>$row->phone</td>";
          echo "<td><a href='deletedata?id=$row->id'>Delete</a></td>";
