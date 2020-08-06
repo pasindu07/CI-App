@@ -33,7 +33,14 @@ class Reg_Assign extends CI_Controller{
             $age = $this->input->post('age');
             $email = $this->input->post('email');
             $mobile = $this->input->post('mobile');
+
             $this->Reg_Model_Assign->savedet($name,$age,$email,$mobile);
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'jpg|png';
+            
+            $this->upload->initialize($config);
+            $this->upload->do_upload('image');
+            
             echo "<script type='text/javascript'>
             alert('Record Added Successfully!');
             window.location = 'http://localhost/ci/assignment/reg_assign/submitdata';
@@ -80,7 +87,7 @@ class Reg_Assign extends CI_Controller{
             //test
             // redirect('Reg_Assign/displaydata');
         }
- 
+
     }
 
 

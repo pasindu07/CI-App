@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- <div class="p-3 mb-2 bg-info text-white">
@@ -17,10 +20,9 @@
       <li class="nav-item ">
         <a class="nav-link" href="<?php echo base_url();?>/reg_assign/displaydata" >View Records</a>
       </li>
-      </ul>
     </nav>
     <div class="container mt-3">
-       <form action="#" method="post">
+       <form action="#" method="post" enctype="multipart/form-data">
            <div class="row col-md-6">
            Name <input type="text" name="name" class="form-control mb-1" value="<?php echo set_value('name')?>">
             <?php
@@ -52,19 +54,29 @@
                echo "<span style='color:red'>".form_error('mobile')."</span>";
            }
            ?>
-           </div>
-           <div class="row">  
-            <div class="col-md-4">
+           </div>  
+           <div class="input-group row col-md-6 mt-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+            </div>
+                <div class="custom-file">
+                    <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+            <script>
+            $('#inputGroupFile01').on('change',function(){
+                var fileName = $(this).val();
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+            <div class="row col-md-4 mt-3">
            <input type="submit" name="save" class="btn btn-outline-success" value="Submit"><br>
-           <!-- <div class="row mt-3 col-md-6">
-           <a href="<?php echo base_url();?>/reg_assign/displaydata" class="badge badge-info">View Records</a>
-           <div> -->
            </div>
            <!-- <div class="col-md-8">
            <button type="submit" class="btn btn-danger" name="update" onclick="location.href='<?php echo base_url();?>reg_assign/displaydata'">Update</button> 
            
            </div> -->
-           </div>
        </form>
     </div>
 </body>
